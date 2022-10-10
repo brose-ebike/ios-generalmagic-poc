@@ -17,12 +17,12 @@ class ContentViewModel: NSObject {
     override init() {
         super.init()
         
-        dispatchQueue.async {
+        //dispatchQueue.async {
             self.intializeSDK()
-        }
+        //}
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            self.startNavigationWithWaypoints()
+            self.startNavigationWithGPX()
         }
     }
     
@@ -38,7 +38,7 @@ class ContentViewModel: NSObject {
     
     // No answer of navigationContext.calculateRoute...
     func startNavigationWithGPX() {
-        guard let fileURL = Bundle.main.url(forResource: "test", withExtension: "gpx") else {
+        guard let fileURL = Bundle.main.url(forResource: "circle", withExtension: "gpx") else {
             assertionFailure()
             return
         }
