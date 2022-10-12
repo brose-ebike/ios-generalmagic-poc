@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D1105B9728F5799E006A1F16 /* GEMMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1105B9628F5799E006A1F16 /* GEMMapView.swift */; };
+		D1105B9D28F595DF006A1F16 /* gpxgenerator_path-2.gpx in Resources */ = {isa = PBXBuildFile; fileRef = D1105B9C28F595DF006A1F16 /* gpxgenerator_path-2.gpx */; };
 		D1441E5928F41F1500635A4F /* GeneralMagicPOCApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1441E5828F41F1500635A4F /* GeneralMagicPOCApp.swift */; };
 		D1441E5B28F41F1500635A4F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1441E5A28F41F1500635A4F /* ContentView.swift */; };
 		D1441E5D28F41F1C00635A4F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1441E5C28F41F1C00635A4F /* Assets.xcassets */; };
@@ -33,6 +35,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		D1105B9628F5799E006A1F16 /* GEMMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GEMMapView.swift; sourceTree = "<group>"; };
+		D1105B9928F57D98006A1F16 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		D1105B9C28F595DF006A1F16 /* gpxgenerator_path-2.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "gpxgenerator_path-2.gpx"; sourceTree = "<group>"; };
 		D1441E5528F41F1500635A4F /* GeneralMagicPOC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeneralMagicPOC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1441E5828F41F1500635A4F /* GeneralMagicPOCApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralMagicPOCApp.swift; sourceTree = "<group>"; };
 		D1441E5A28F41F1500635A4F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -76,12 +81,14 @@
 		D1441E5728F41F1500635A4F /* GeneralMagicPOC */ = {
 			isa = PBXGroup;
 			children = (
-				D1441E6D28F429B200635A4F /* gpx */,
-				D1441E5828F41F1500635A4F /* GeneralMagicPOCApp.swift */,
-				D1441E5A28F41F1500635A4F /* ContentView.swift */,
+				D1105B9928F57D98006A1F16 /* Info.plist */,
 				D1441E5C28F41F1C00635A4F /* Assets.xcassets */,
-				D1441E5E28F41F1C00635A4F /* Preview Content */,
+				D1441E5A28F41F1500635A4F /* ContentView.swift */,
 				D1441E6B28F4223100635A4F /* ContentViewModel.swift */,
+				D1105B9628F5799E006A1F16 /* GEMMapView.swift */,
+				D1441E5828F41F1500635A4F /* GeneralMagicPOCApp.swift */,
+				D1441E6D28F429B200635A4F /* gpx */,
+				D1441E5E28F41F1C00635A4F /* Preview Content */,
 			);
 			path = GeneralMagicPOC;
 			sourceTree = "<group>";
@@ -106,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				D1441E6E28F429C400635A4F /* circle.gpx */,
+				D1105B9C28F595DF006A1F16 /* gpxgenerator_path-2.gpx */,
 				D1441E7028F4306500635A4F /* test.gpx */,
 			);
 			path = gpx;
@@ -173,6 +181,7 @@
 				D1441E6F28F429C400635A4F /* circle.gpx in Resources */,
 				D1441E7128F4306500635A4F /* test.gpx in Resources */,
 				D1441E6028F41F1C00635A4F /* Preview Assets.xcassets in Resources */,
+				D1105B9D28F595DF006A1F16 /* gpxgenerator_path-2.gpx in Resources */,
 				D1441E5D28F41F1C00635A4F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -185,6 +194,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D1441E5B28F41F1500635A4F /* ContentView.swift in Sources */,
+				D1105B9728F5799E006A1F16 /* GEMMapView.swift in Sources */,
 				D1441E5928F41F1500635A4F /* GeneralMagicPOCApp.swift in Sources */,
 				D1441E6C28F4223100635A4F /* ContentViewModel.swift in Sources */,
 			);
@@ -315,8 +325,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"GeneralMagicPOC/Preview Content\"";
+				DEVELOPMENT_TEAM = TY35GEFYX7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GeneralMagicPOC/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Your location is displayed on the map and is used for route planning and navigation.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -327,7 +340,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.brose.ebike.GeneralMagicPOC;
+				PRODUCT_BUNDLE_IDENTIFIER = lbproductions.GeneralMagicPOC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -343,8 +356,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"GeneralMagicPOC/Preview Content\"";
+				DEVELOPMENT_TEAM = TY35GEFYX7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GeneralMagicPOC/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Your location is displayed on the map and is used for route planning and navigation.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -355,7 +371,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.brose.ebike.GeneralMagicPOC;
+				PRODUCT_BUNDLE_IDENTIFIER = lbproductions.GeneralMagicPOC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

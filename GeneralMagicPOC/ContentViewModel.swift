@@ -5,25 +5,28 @@
 //  Created by Niclas Raabe on 10.10.22.
 //
 
+import CoreLocation
 import Foundation
 import GEMKit
 
 let GEMToken = "<TOKEN>"
+let locationManager = CLLocationManager()
 
-class ContentViewModel: NSObject {
+class ContentViewModel: NSObject, ObservableObject {
+    var mapViewController: MapViewController!
     var navigationContext: NavigationContext!
-    let dispatchQueue = DispatchQueue(label: "SDK.InitializeQueue")
+    var positionContext: PositionContext!
+    var dataSource: DataSourceContext!
+    
+    @Published var route: RouteObject?
     
     override init() {
         super.init()
         
-        //dispatchQueue.async {
-            self.intializeSDK()
-        //}
+        locationManager.requestWhenInUseAuthorization()
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            self.startNavigationWithGPX()
-        }
+        intializeSDK()
+        setupDataSource()
     }
     
     func intializeSDK() {
@@ -36,46 +39,33 @@ class ContentViewModel: NSObject {
         NSLog("GEMKit init with success:%@", String(success))
     }
     
-    // No answer of navigationContext.calculateRoute...
-    func startNavigationWithGPX() {
-        guard let fileURL = Bundle.main.url(forResource: "circle", withExtension: "gpx") else {
-            assertionFailure()
-            return
-        }
-        guard let data = NSData(contentsOf: fileURL) as Data? else {
-            assertionFailure()
-            return
-        }
+    func setupDataSource() {
+        let configuration = DataSourceConfigurationObject()
+        configuration.setPositionActivity(.otherNavigation)
+        configuration.setPositionAccuracy(.whenMoving)
+        configuration.setPositionDistanceFilter(0)
         
-        let preferences = RoutePreferencesObject()
-        preferences.setTransportMode(.bicycle)
+        dataSource = DataSourceContext()
+        dataSource!.setConfiguration(configuration, for: .position)
         
-        navigationContext = NavigationContext(preferences: preferences)
-        navigationContext?.delegate = self
-        
-        let startPoints: [LandmarkObject] = []
-        let endPoints: [LandmarkObject] = []
-        
-        NSLog("Calculating route...")
-        navigationContext.calculateRoute(withStartWaypoints: startPoints,
-                                         buffer: data,
-                                         endWaypoints: endPoints,
-                                         completionHandler: { (results: [RouteObject]) in
-                                             NSLog("Found %d routes.", results.count)
-            
-                                             for route in results {
-                                                 if let timeDuration = route.getTimeDistance() {
-                                                     let time = timeDuration.getTotalTimeFormatted() + timeDuration.getTotalTimeUnitFormatted()
-                                                     let distance = timeDuration.getTotalDistanceFormatted() + timeDuration.getTotalDistanceUnitFormatted()
-                    
-                                                     NSLog("route time:%@, distance:%@", time, distance)
-                                                 }
-                                             }
-                                         })
+        positionContext = PositionContext(context: dataSource!)
     }
     
-    // No answer of navigationContext.calculateRoute...
-    func startNavigationWithWaypoints() {
+    func onAppear() {
+        mapViewController = .init()
+        mapViewController.hideCompass()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.mapViewController.startRender()
+            self.mapViewController.startFollowingPosition(withAnimationDuration: 1000, zoomLevel: -1, viewAngle: 0) { _ in }
+        }
+        
+        calculateRoute()
+        
+        objectWillChange.send()
+    }
+    
+    func calculateRoute() {
         let preferences = RoutePreferencesObject()
         preferences.setTransportMode(.bicycle)
         
@@ -98,7 +88,18 @@ class ContentViewModel: NSObject {
                     NSLog("route time:%@, distance:%@", time, distance)
                 }
             }
+            if let route = results.first {
+                self.route = route
+                self.mapViewController.showRoutes([route], withTraffic: nil, showSummary: false)
+            }
         })
+    }
+    
+    func startNavigation() {
+        guard let route = route else {
+            return
+        }
+        navigationContext!.navigate(withRoute: route) { _ in }
     }
 }
 
@@ -145,31 +146,9 @@ extension ContentViewModel: NavigationContextDelegate {
 }
 
 enum Constants {
-    static let routeCoordinates: [CLLocationCoordinate2D] = [.init(latitude: 40.74163612569854, longitude: -73.99374403493513),
-                                                             .init(latitude: 40.74293079743917, longitude: -73.99281050186207),
-                                                             .init(latitude: 40.74155114227432, longitude: -73.98958552778382),
-                                                             .init(latitude: 40.74221690595822, longitude: -73.98907105362191),
-                                                             .init(latitude: 40.742824910521236, longitude: -73.98860362553543),
-                                                             .init(latitude: 40.74346951687277, longitude: -73.98816932142395),
-                                                             .init(latitude: 40.743116374662996, longitude: -73.98740816778515),
-                                                             .init(latitude: 40.74276232589619, longitude: -73.9865921825232),
-                                                             .init(latitude: 40.74188782900569, longitude: -73.98730475449612),
-                                                             .init(latitude: 40.74087248138878, longitude: -73.98800830150036),
-                                                             .init(latitude: 40.740204586123006, longitude: -73.98638537083042),
-                                                             .init(latitude: 40.739546964090394, longitude: -73.98475718903514),
-                                                             .init(latitude: 40.74019992129571, longitude: -73.98427464539485),
-                                                             .init(latitude: 40.740782371079156, longitude: -73.9837959992614),
-                                                             .init(latitude: 40.74050763125072, longitude: -73.98309978670369),
-                                                             .init(latitude: 40.740133983262986, longitude: -73.98220051214996),
-                                                             .init(latitude: 40.738886643164726, longitude: -73.98315780441682),
-                                                             .init(latitude: 40.737952496491005, longitude: -73.98088786136883),
-                                                             .init(latitude: 40.73858442065284, longitude: -73.98040196284998),
-                                                             .init(latitude: 40.73757883413092, longitude: -73.97807400211008),
-                                                             .init(latitude: 40.73567202450648, longitude: -73.9795607060094),
-                                                             .init(latitude: 40.738251295313496, longitude: -73.98569407715556),
-                                                             .init(latitude: 40.73892510776117, longitude: -73.98733508003534),
-                                                             .init(latitude: 40.73985374590963, longitude: -73.98957601420553),
-                                                             .init(latitude: 40.741397784191776, longitude: -73.98914813357109),
-                                                             .init(latitude: 40.74293079743917, longitude: -73.99281050186207),
-                                                             .init(latitude: 40.74163612569854, longitude: -73.99374403493513)]
+    static let routeCoordinates: [CLLocationCoordinate2D] = [.init(latitude: 51.32624430087813, longitude: 9.447682602603694),
+                                                             .init(latitude: 51.32771612680204, longitude: 9.44803543463846),
+                                                             .init(latitude: 51.327625555217715, longitude: 9.450186625875896),
+                                                             .init(latitude: 51.32584558532012, longitude: 9.45111467019165),
+                                                             .init(latitude: 51.326086941217106, longitude: 9.448759690741458)]
 }

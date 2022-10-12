@@ -8,16 +8,23 @@
 import SwiftUI
 
 struct ContentView: View {
-    var viewModel: ContentViewModel
+    @ObservedObject var viewModel: ContentViewModel
 
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            if viewModel.mapViewController != nil {
+                GEMMapView(viewModel: viewModel)
+                    .ignoresSafeArea()
+            }
+            if viewModel.route != nil {
+                Button("Start") {
+                    viewModel.startNavigation()
+                }
+            }
         }
-        .padding()
+        .onAppear {
+            viewModel.onAppear()
+        }
     }
 }
 
