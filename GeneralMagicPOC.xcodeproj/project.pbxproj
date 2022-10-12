@@ -13,21 +13,21 @@
 		D1441E5B28F41F1500635A4F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1441E5A28F41F1500635A4F /* ContentView.swift */; };
 		D1441E5D28F41F1C00635A4F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1441E5C28F41F1C00635A4F /* Assets.xcassets */; };
 		D1441E6028F41F1C00635A4F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1441E5F28F41F1C00635A4F /* Preview Assets.xcassets */; };
-		D1441E6828F420D900635A4F /* GEMKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1441E6728F420D900635A4F /* GEMKit.xcframework */; };
-		D1441E6928F420D900635A4F /* GEMKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D1441E6728F420D900635A4F /* GEMKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D1441E6C28F4223100635A4F /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1441E6B28F4223100635A4F /* ContentViewModel.swift */; };
 		D1441E6F28F429C400635A4F /* circle.gpx in Resources */ = {isa = PBXBuildFile; fileRef = D1441E6E28F429C400635A4F /* circle.gpx */; };
 		D1441E7128F4306500635A4F /* test.gpx in Resources */ = {isa = PBXBuildFile; fileRef = D1441E7028F4306500635A4F /* test.gpx */; };
+		D1D4BCC728F6E52800C6D695 /* GEMKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1D4BCC628F6E52700C6D695 /* GEMKit.xcframework */; };
+		D1D4BCC828F6E52800C6D695 /* GEMKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D1D4BCC628F6E52700C6D695 /* GEMKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		D1441E6A28F420D900635A4F /* Embed Frameworks */ = {
+		D1D4BCC928F6E52800C6D695 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				D1441E6928F420D900635A4F /* GEMKit.xcframework in Embed Frameworks */,
+				D1D4BCC828F6E52800C6D695 /* GEMKit.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -36,7 +36,6 @@
 
 /* Begin PBXFileReference section */
 		D1105B9628F5799E006A1F16 /* GEMMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GEMMapView.swift; sourceTree = "<group>"; };
-		D1105B9928F57D98006A1F16 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		D1105B9C28F595DF006A1F16 /* gpxgenerator_path-2.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "gpxgenerator_path-2.gpx"; sourceTree = "<group>"; };
 		D1441E5528F41F1500635A4F /* GeneralMagicPOC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeneralMagicPOC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1441E5828F41F1500635A4F /* GeneralMagicPOCApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralMagicPOCApp.swift; sourceTree = "<group>"; };
@@ -47,6 +46,7 @@
 		D1441E6B28F4223100635A4F /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		D1441E6E28F429C400635A4F /* circle.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = circle.gpx; sourceTree = "<group>"; };
 		D1441E7028F4306500635A4F /* test.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = test.gpx; sourceTree = "<group>"; };
+		D1D4BCC628F6E52700C6D695 /* GEMKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GEMKit.xcframework; path = Frameworks/GEMKit.xcframework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,7 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D1441E6828F420D900635A4F /* GEMKit.xcframework in Frameworks */,
+				D1D4BCC728F6E52800C6D695 /* GEMKit.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,7 +81,6 @@
 		D1441E5728F41F1500635A4F /* GeneralMagicPOC */ = {
 			isa = PBXGroup;
 			children = (
-				D1105B9928F57D98006A1F16 /* Info.plist */,
 				D1441E5C28F41F1C00635A4F /* Assets.xcassets */,
 				D1441E5A28F41F1500635A4F /* ContentView.swift */,
 				D1441E6B28F4223100635A4F /* ContentViewModel.swift */,
@@ -104,6 +103,7 @@
 		D1441E6628F420D900635A4F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D1D4BCC628F6E52700C6D695 /* GEMKit.xcframework */,
 				D1441E6728F420D900635A4F /* GEMKit.xcframework */,
 			);
 			name = Frameworks;
@@ -129,7 +129,7 @@
 				D1441E5128F41F1500635A4F /* Sources */,
 				D1441E5228F41F1500635A4F /* Frameworks */,
 				D1441E5328F41F1500635A4F /* Resources */,
-				D1441E6A28F420D900635A4F /* Embed Frameworks */,
+				D1D4BCC928F6E52800C6D695 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -328,7 +328,6 @@
 				DEVELOPMENT_TEAM = TY35GEFYX7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = GeneralMagicPOC/Info.plist;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Your location is displayed on the map and is used for route planning and navigation.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -359,7 +358,6 @@
 				DEVELOPMENT_TEAM = TY35GEFYX7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = GeneralMagicPOC/Info.plist;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Your location is displayed on the map and is used for route planning and navigation.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
