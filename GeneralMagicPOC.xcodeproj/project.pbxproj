@@ -8,14 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		D1105B9728F5799E006A1F16 /* GEMMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1105B9628F5799E006A1F16 /* GEMMapView.swift */; };
-		D1105B9D28F595DF006A1F16 /* gpxgenerator_path-2.gpx in Resources */ = {isa = PBXBuildFile; fileRef = D1105B9C28F595DF006A1F16 /* gpxgenerator_path-2.gpx */; };
+		D1105B9D28F595DF006A1F16 /* route.gpx in Resources */ = {isa = PBXBuildFile; fileRef = D1105B9C28F595DF006A1F16 /* route.gpx */; };
 		D1441E5928F41F1500635A4F /* GeneralMagicPOCApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1441E5828F41F1500635A4F /* GeneralMagicPOCApp.swift */; };
 		D1441E5B28F41F1500635A4F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1441E5A28F41F1500635A4F /* ContentView.swift */; };
 		D1441E5D28F41F1C00635A4F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1441E5C28F41F1C00635A4F /* Assets.xcassets */; };
 		D1441E6028F41F1C00635A4F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1441E5F28F41F1C00635A4F /* Preview Assets.xcassets */; };
 		D1441E6C28F4223100635A4F /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1441E6B28F4223100635A4F /* ContentViewModel.swift */; };
-		D1441E6F28F429C400635A4F /* circle.gpx in Resources */ = {isa = PBXBuildFile; fileRef = D1441E6E28F429C400635A4F /* circle.gpx */; };
-		D1441E7128F4306500635A4F /* test.gpx in Resources */ = {isa = PBXBuildFile; fileRef = D1441E7028F4306500635A4F /* test.gpx */; };
 		D1D4BCC728F6E52800C6D695 /* GEMKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1D4BCC628F6E52700C6D695 /* GEMKit.xcframework */; };
 		D1D4BCC828F6E52800C6D695 /* GEMKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D1D4BCC628F6E52700C6D695 /* GEMKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
@@ -36,7 +34,7 @@
 
 /* Begin PBXFileReference section */
 		D1105B9628F5799E006A1F16 /* GEMMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GEMMapView.swift; sourceTree = "<group>"; };
-		D1105B9C28F595DF006A1F16 /* gpxgenerator_path-2.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "gpxgenerator_path-2.gpx"; sourceTree = "<group>"; };
+		D1105B9C28F595DF006A1F16 /* route.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = route.gpx; sourceTree = "<group>"; };
 		D1441E5528F41F1500635A4F /* GeneralMagicPOC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeneralMagicPOC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1441E5828F41F1500635A4F /* GeneralMagicPOCApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralMagicPOCApp.swift; sourceTree = "<group>"; };
 		D1441E5A28F41F1500635A4F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -44,8 +42,6 @@
 		D1441E5F28F41F1C00635A4F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D1441E6728F420D900635A4F /* GEMKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GEMKit.xcframework; path = "../../../Downloads/GENERALMAGIC-MAPS-SDK-iOS-arm64-x86_64-7.1.22.39.4A2FB489/Libs/GEMKit.xcframework"; sourceTree = "<group>"; };
 		D1441E6B28F4223100635A4F /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
-		D1441E6E28F429C400635A4F /* circle.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = circle.gpx; sourceTree = "<group>"; };
-		D1441E7028F4306500635A4F /* test.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = test.gpx; sourceTree = "<group>"; };
 		D1D4BCC628F6E52700C6D695 /* GEMKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GEMKit.xcframework; path = Frameworks/GEMKit.xcframework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -112,9 +108,7 @@
 		D1441E6D28F429B200635A4F /* gpx */ = {
 			isa = PBXGroup;
 			children = (
-				D1441E6E28F429C400635A4F /* circle.gpx */,
-				D1105B9C28F595DF006A1F16 /* gpxgenerator_path-2.gpx */,
-				D1441E7028F4306500635A4F /* test.gpx */,
+				D1105B9C28F595DF006A1F16 /* route.gpx */,
 			);
 			path = gpx;
 			sourceTree = "<group>";
@@ -178,10 +172,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D1441E6F28F429C400635A4F /* circle.gpx in Resources */,
-				D1441E7128F4306500635A4F /* test.gpx in Resources */,
 				D1441E6028F41F1C00635A4F /* Preview Assets.xcassets in Resources */,
-				D1105B9D28F595DF006A1F16 /* gpxgenerator_path-2.gpx in Resources */,
+				D1105B9D28F595DF006A1F16 /* route.gpx in Resources */,
 				D1441E5D28F41F1C00635A4F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
